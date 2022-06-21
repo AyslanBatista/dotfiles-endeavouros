@@ -4,7 +4,6 @@
 #sudo systemctl start cronie
 #sudo systemctl enable cronie
  
- 
 #Minuto (0 a 59) | Hora (0 a 23) | Dia (1 a 31) | Mês (1 a 12)| Dia da semana (0 a 7) | Comando (comando a ser executado).
 #Ex: 5 0 * 8 * command   -- Executar uma tarefa às 00h05 todos os dias no mês de Agosto
 #Ex: 0 22 * * 1-5 command -- Executar uma terefa às 22h00 todos os dias da semana, de todos os meses, de segunda a sexta-feira 
