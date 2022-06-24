@@ -26,22 +26,23 @@ function box_name {
   echo "${box:gs/%/%%}"
 }
 #029 #019 #039 #049 #059 #069 #079 #089 #099 #109 #119 #129 #139 #149 #306 #011 #012
+#021 blue escuro
 local ruby_env='$(ruby_prompt_info)'
 local git_info='$(git_prompt_info)'
 local virtualenv_info='$(virtualenv_prompt_info)'
 local prompt_char='$(prompt_char)'
-
+#040 
 PROMPT="${FG[039]}╭─${virtualenv_info}${ruby_env}${FG[012]}[${FG[040]}%n${FG[012]}]${FG[012]}[${FG[033]}$(box_name)${FG[012]}]${FG[239]}${FG[012]}[%B${FG[202]}%~%b${git_info}${FG[012]}]
 ${FG[039]}╰─${prompt_char}%{$reset_color%} "
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" ${FG[239]}on%{$reset_color%} ${FG[255]}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="${FG[226]}✘✘✘"
+ZSH_THEME_GIT_PROMPT_DIRTY="${FG[045]}✘✘✘"
 ZSH_THEME_GIT_PROMPT_CLEAN="${FG[040]}✔"
 
 ZSH_THEME_RUBY_PROMPT_PREFIX=" ${FG[239]}using${FG[243]} ‹"
 ZSH_THEME_RUBY_PROMPT_SUFFIX="›%{$reset_color%}"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-ZSH_THEME_VIRTUALENV_PREFIX="${FG[012]}(${FG[205]}«"
+ZSH_THEME_VIRTUALENV_PREFIX="${FG[012]}(${FG[093]}«"
 ZSH_THEME_VIRTUALENV_SUFFIX="»${FG[012]})%{$reset_color%}"
