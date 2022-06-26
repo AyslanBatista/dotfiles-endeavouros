@@ -9,9 +9,14 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="miloshadzic"
-ZSH_THEME="jispwoso"
+#ZSH_THEME="jispwoso"
 #ZSH_THEME="bira"
-#ZSH_THEME="gnzh"
+ZSH_THEME="fino"
+#ZSH_THEME="crunch"
+#ZSH_THEME="smt"
+
+
+
 
 alias ls='ls --color=auto'
 alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
@@ -23,7 +28,7 @@ alias xrandr1280='xrandr --output HDMI-0 --mode 1280x720'
 alias monitor='xrandr --output HDMI-0 --mode 1920x1080 --rate 120 --primary --output DVI-D-0 --mode 1920x1080 --rate 60 --right-of HDMI-0'
 
 # Aplicativos
-alias nvim='vim'
+alias vim='nano'
 alias musica='./rofi-beats'
 alias volume='alsamixer'
 
@@ -38,6 +43,7 @@ alias yml='code /home/ayslan/.config/alacritty/alacritty.yml'
 alias zshrc='code .zshrc'
 alias picom.conf='code /home/ayslan/.config/picom/picom.conf'
 alias i3blocks='code /home/ayslan/.config/i3/i3blocks.conf'
+alias fino='code  ~/.oh-my-zsh/themes/fino.zsh-theme'
 
 
 
