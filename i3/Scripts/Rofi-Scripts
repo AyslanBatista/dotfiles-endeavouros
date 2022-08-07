@@ -9,7 +9,7 @@
 # Defining the text editor to use.
 # DMENUEDITOR="vim"
 # DMENUEDITOR="leafpad"
-DMEDITOR="code-oss -e vim"
+DMEDITOR="code -e vim"
 
 # An array of options to choose.
 # You can edit this list to add/remove config files.

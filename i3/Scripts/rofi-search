@@ -16,6 +16,7 @@ DMBROWSER="brave"
 declare -a options=(
 " Google - https://www.google.com/search?q="
 " ArchLinux - https://archlinux.org/packages/?sort=&q="
+" Docker    -  https://hub.docker.com/search?q="
 " Youtube - https://www.youtube.com/results?search_query="
 " GoogleImages - https://www.google.com/search?hl=en&tbm=isch&q="
 " Translate - https://translate.google.com/?sl=auto&tl=en&text="

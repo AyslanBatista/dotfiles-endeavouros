@@ -56,6 +56,7 @@ gaps outer -2
 ########## KEY BINDINGS ##########
 ##################################
 
+bindsym $mod+shift+Return exec xfce4-terminal
 bindsym $mod+Return exec cool-retro-term
 bindsym $mod+q kill
 
@@ -68,19 +69,17 @@ bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot
 bindsym Shift+Print exec flameshot gui
 
 
-bindsym F12 exec ~/.config/i3/scripts/powermenu
-bindsym F10 exec anydesk
-bindsym F8 exec ~/.config/i3/Scripts/Rofi-Playlist-RL
-bindsym F7 exec ~/.config/i3/Scripts/Rofi-Playlist
-bindsym F6 exec discord
-bindsym F5 exec telegram-desktop
-bindsym F4 exec ~/.config/i3/Scripts/rofi-search
-bindsym F3 exec ~/.config/i3/Scripts/Rofi-Scripts
-bindsym F2 exec ~/LogosBible_Linux_P/./Logos.sh
-
+bindsym $mod+F12 exec ~/.config/i3/scripts/powermenu
+bindsym $mod+F10 exec anydesk
+bindsym $mod+F8 exec ~/.config/i3/Scripts/Rofi-Playlist-RL
+bindsym $mod+F7 exec discord
+bindsym $mod+F6 exec telegram-desktop
+bindsym $mod+F4 exec ~/.config/i3/Scripts/rofi-search
+bindsym $mod+F3 exec ~/.config/i3/Scripts/Rofi-Scripts
+bindsym $mod+F2 exec ~/LogosBible_Linux_P/./Logos.sh
 
 # Power 
-bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
+bindsym $mod+F11 exec ~/.config/i3/scripts/power-profiles
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -348,9 +347,9 @@ strip_workspace_numbers yes
 ############# START ##############
 ##################################
 
-exec --no-startup-id --autostart ~/.screenlayout/monitor.sh
-exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 120 --primary --output DVI-D-0 --mode 1920x1080 --rate 60 --right-of HDMI-0
-exec --no-startup-id sleep 2 && nitrogen --restore
+#exec --no-startup-id --autostart ~/.screenlayout/monitor.sh
+#exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 120 --primary --output DVI-D-0 --mode 1920x1080 --rate 60 --right-of HDMI-0
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id numlockx on
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
