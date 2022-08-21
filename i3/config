@@ -2,6 +2,20 @@
 ############# MODKEY #############
 ##################################
 
+#########################################
+###         KEY DEFINITIONS          ####
+#########################################
+##     $Mod = Super key or Mod4        ##
+##         Mod1 = ALT key              ##
+##       Control = CTRL key            ##
+##        Shift = SHIFT key            ##
+##       Escape = ESCAPE key           ##
+##    Return = ENTER or RETURN key     ##
+##        Pause = PAUSE key            ##
+##        Print = PRINT key            ##
+##          Tab = TAB key              ##
+#########################################
+
 set $mod Mod4
 
 # show window title bars (not officially supported with i3gaps)
@@ -56,7 +70,8 @@ gaps outer -2
 ########## KEY BINDINGS ##########
 ##################################
 
-bindsym $mod+shift+Return exec xfce4-terminal
+# bindsym $mod+shift+Return exec xfce4-terminal
+bindsym $mod+shift+Return exec terminator
 bindsym $mod+Return exec cool-retro-term
 bindsym $mod+q kill
 
@@ -146,12 +161,12 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
 # switch/iterate between workspaces
-bindsym $mod+Tab workspace next
+bindsym Mod1+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 # switch to workspace
 bindsym $mod+1    workspace  $ws1
-bindsym $mod+2    workspace  $ws2
+bindsym $mod+2    workspace  $ws2		
 bindsym $mod+3    workspace  $ws3
 bindsym $mod+4    workspace  $ws4
 bindsym $mod+5    workspace  $ws5
@@ -434,12 +449,14 @@ for_window [class="urxvt"] border pixel 1
 bindsym $mod+d exec rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
 
-#bindsym F9 exec rofi -modi drun -show drun \
-#		-config ~/.config/rofi/rofidmenu.rasi
+# bindsym $mod+F9 exec rofi -modi drun -show drun \
+		# -config ~/.config/rofi/rofidmenu.rasi
 
+bindsym $mod+t exec rofi -modi emoji -show emoji -kb-custom-1 Ctrl+C \
+		-config ~/.config/rofi/rofidmenu.rasi
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 
-bindsym $mod+t exec rofi -show window \
+bindsym $mod+Tab exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F10 exec rofi -show window 
