@@ -14,11 +14,13 @@ DMEDITOR="vlc"
 # An array of options to choose.
 # You can edit this list to add/remove config files.
 declare -a options=(
-"Louvores - $HOME/Música/Playlist/Louvores.xspf"
-"FundoMusical - $HOME/Música/Playlist/FundoMusical.xspf"
-"DioneiVieira - $HOME/Música/Playlist/DioneiVieira.xspf"
-"RapGospel - $HOME/Música/Playlist/RapGospel.xspf"
-"AllBlack - $HOME/Música/Playlist/AllBlack.xspf"
+"Louvores - $HOME/Music/Playlist/Louvores.xspf"
+"FundoMusical - $HOME/Music/Playlist/FundoMusical.xspf"
+"DioneiVieira - $HOME/Music/Playlist/DioneiVieira.xspf"
+"NewsDionei - $HOME/Music/Playlist/NewsDionei.xspf"
+"RapJesus - $HOME/Music/Playlist/RapJesus.xspf"
+"RapNacional - $HOME/Music/Playlist/RapNacional.xspf"
+"AllBlack - $HOME/Music/Playlist/AllBlack.xspf"
 "quit"
 )
 
