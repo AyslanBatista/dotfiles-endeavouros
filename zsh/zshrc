@@ -121,6 +121,7 @@ alias fino='code  ~/.oh-my-zsh/themes/fino-clean.zsh-theme'
 
 plugins=(
   git
+  ssh-agent
   zsh-autosuggestions
   fzf
   zsh-syntax-highlighting
