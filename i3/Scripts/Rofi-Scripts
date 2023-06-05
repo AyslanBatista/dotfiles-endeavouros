@@ -14,12 +14,12 @@ DMEDITOR="code -e vim"
 # An array of options to choose.
 # You can edit this list to add/remove config files.
 declare -a options=(
-"Rofi-Playlist - $HOME/.config/Scripts/Rofi-Playlist"
-"rofi-files - $HOME/.config/Scripts/rofi-files"
-"rofi-search - $HOME/.config/Scripts/rofi-search"
-"cpu - $HOME/.config/Scripts/cpu"
-"ram - $HOME/.config/Scripts/ram"
-"time - $HOME/.config/Scripts/time"
+"Rofi-Playlist - $HOME/.config/i3/Scripts/Rofi-Playlist"
+"rofi-files - $HOME/.config/i3/Scripts/rofi-files"
+"rofi-search - $HOME/.config/i3/Scripts/rofi-search"
+"cpu - $HOME/.config/i3/Scripts/cpu"
+"ram - $HOME/.config/i3/Scripts/ram"
+"time - $HOME/.config/i3/Scripts/time"
 "quit"
 )
 
