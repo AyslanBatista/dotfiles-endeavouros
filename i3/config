@@ -242,14 +242,14 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 bindsym $mod+e exec /usr/bin/code
 bindsym $mod+w exec /usr/bin/brave
 bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
-bindsym Shift+Print exec flameshot gui
+bindsym Shift+Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym Print exec flameshot gui
 
 
 bindsym $mod+F3 exec ~/.config/i3/Scripts/Rofi-Scripts
 bindsym $mod+F4 exec ~/.config/i3/Scripts/rofi-search
-bindsym $mod+F5 exec ~/.config/i3/Scripts/Rofi-Playlist-RL
-bindsym $mod+F6 exec ~/.config/i3/Scripts/Rofi-Playlist
+bindsym $mod+F5 exec ~/.config/i3/Scripts/Rofi-Playlist-Audacious
+bindsym $mod+F6 exec ~/.config/i3/Scripts/Rofi-Playlist-VLC
 bindsym $mod+F7 exec discord
 bindsym $mod+F8 exec telegram-desktop
 bindsym $mod+F9 exec zoom
