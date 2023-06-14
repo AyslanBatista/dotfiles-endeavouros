@@ -1,7 +1,8 @@
 #
+# /home/ayslan/.nvidia-settings-rc
 #
 # Configuration file for nvidia-settings - the NVIDIA Settings utility
-# Generated on Wed Jun 14 15:16:01 2023
+# Generated on Wed Jun 14 16:14:02 2023
 #
 
 # ConfigProperties:
@@ -11,9 +12,9 @@ DisplayStatusBar = Yes
 SliderTextEntries = Yes
 IncludeDisplayNameInConfigFile = No
 UpdateRulesOnProfileNameChange = Yes
-Timer = Memory_Used_(GPU_0),Yes,3000
-Timer = Thermal_Monitor_(GPU_0),Yes,1000
 Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+Timer = Memory_Used_(GPU_0),Yes,3000
 
 # Attributes:
 
@@ -47,9 +48,9 @@ Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
 [DPY:DP-2]/RedBrightness=-0.066254
 [DPY:DP-2]/GreenBrightness=-0.066254
 [DPY:DP-2]/BlueBrightness=-0.066254
-[DPY:DP-2]/RedContrast=0.076319
-[DPY:DP-2]/GreenContrast=0.076319
-[DPY:DP-2]/BlueContrast=0.076319
+[DPY:DP-2]/RedContrast=0.044319
+[DPY:DP-2]/GreenContrast=0.044319
+[DPY:DP-2]/BlueContrast=0.044319
 [DPY:DP-2]/RedGamma=0.996856
 [DPY:DP-2]/GreenGamma=0.996856
 [DPY:DP-2]/BlueGamma=0.996856
