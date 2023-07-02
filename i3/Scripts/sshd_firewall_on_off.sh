@@ -5,9 +5,9 @@
 #
 ######################################
 
-#Criar um arquivo com o nome .secrets
-#onde contém o numero da porta que
-#o SSH e o Firewall etá usando
+#Criar um arquivo com o nome .secrets onde contem
+#uma variavel com o nome PORTA_SSHD com o numero
+#da porta que sera usada no SSH e o Firewall 
 
 #VARIAVEIS
 source $HOME/.config/i3/Scripts/.secrets

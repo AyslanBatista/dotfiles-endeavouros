@@ -254,6 +254,7 @@ bindsym $mod+F7 exec discord
 bindsym $mod+F8 exec telegram-desktop
 bindsym $mod+F9 exec zoom
 bindsym $mod+F10 exec anydesk
+bindsym $mod+F11 exec system-monitoring-center
 bindsym $mod+F12 exec ~/.config/i3/scripts/powermenu
 
 # Power Profiles menu switcher (rofi)
