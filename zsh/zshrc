@@ -26,8 +26,11 @@ alias monitor='xrandr --output HDMI-0 --mode 1920x1080 --rate 120 --primary --ou
 
 # Aplicativos
 alias vim='nvim'
-alias musica='./rofi-beats'
-alias volume='alsamixer'
+alias vi='nvim'
+
+# Scripts
+alias firewall_sshd='~/.config/i3/Scripts/sshd_firewall_on_off.sh'
+alias listagem_pacotes='~/.config/i3/Scripts/listagem_pacote.sh'
 
 # Endevour
 alias pr='sudo pacman -R'
@@ -35,11 +38,11 @@ alias pl='sudo pacman -S'
 alias pu='sudo pacman -Su'
 
 # Files
-alias i3config='code /home/ayslan/.config/i3/config'
-alias yml='code /home/ayslan/.config/alacritty/alacritty.yml'
-alias zshrc='code .zshrc'
-alias picom.conf='code /home/ayslan/.config/picom/picom.conf'
-alias i3blocks='code /home/ayslan/.config/i3/i3blocks.conf'
+alias i3config='code ~/.config/i3/config'
+alias yml='code ~/.config/alacritty/alacritty.yml'
+alias zshrc='code ~/.zshrc'
+alias picom.conf='code ~/.config/picom/picom.conf'
+alias i3blocks='code ~/.config/i3/i3blocks.conf'
 alias fino='code  ~/.oh-my-zsh/themes/fino-clean.zsh-theme'
 
 
@@ -154,4 +157,3 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"source /home/ayslan/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

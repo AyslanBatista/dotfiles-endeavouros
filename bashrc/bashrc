@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Path to your oh-my-bash installation.
-export OSH=/home/ayslan/.oh-my-bash
+export OSH=~/.oh-my-bash
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
@@ -61,11 +61,11 @@ alias pl='sudo pacman -S'
 alias pu='sudo pacman -Su'
 
 # Files
-alias i3config='code /home/ayslan/.config/i3/config'
-alias yml='code /home/ayslan/.config/alacritty/alacritty.yml'
+alias i3config='code ~/.config/i3/config'
+alias yml='code ~/.config/alacritty/alacritty.yml'
 alias bashrc='code .bashrc'
-alias picom.conf='code /home/ayslan/.config/picom/picom.conf'
-alias i3blocks='code /home/ayslan/.config/i3/i3blocks.conf'
+alias picom.conf='code ~/.config/picom/picom.conf'
+alias i3blocks='code ~/.config/i3/i3blocks.conf'
 
 [[ "$(whoami)" = "root" ]] && return
 
