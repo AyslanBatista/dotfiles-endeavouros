@@ -14,11 +14,13 @@ DMEDITOR="code -e vim"
 # An array of options to choose.
 # You can edit this list to add/remove config files.
 declare -a options=(
-"Rofi-Playlist - $HOME/.config/i3/Scripts/Rofi-Playlist"
+"ProtonVPN - $HOME/.config/protonvpn/.VPN.html"
+"On/Off-Firewall-SSHD - $HOME/.config/i3/Scripts/sshd_firewall_on_off.sh"
+"Listagem-Pacotes - $HOME/.config/i3/Scripts/listagem_pacote.sh"
+"Rofi-Playlist-Audacious - $HOME/.config/i3/Scripts/Rofi-Playlist-Audacious"
+"Rofi-Playlist-VLC - $HOME/.config/i3/Scripts/Rofi-Playlist-VLC"
 "rofi-files - $HOME/.config/i3/Scripts/rofi-files"
 "rofi-search - $HOME/.config/i3/Scripts/rofi-search"
-"cpu - $HOME/.config/i3/Scripts/cpu"
-"ram - $HOME/.config/i3/Scripts/ram"
 "time - $HOME/.config/i3/Scripts/time"
 "quit"
 )
