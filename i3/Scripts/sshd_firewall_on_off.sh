@@ -10,7 +10,8 @@
 #da porta que sera usada no SSH e o Firewall 
 
 #VARIAVEIS
-source $HOME/.config/i3/Scripts/.secrets
+#source $HOME/.config/i3/Scripts/.secrets
+source /opt/.secrets
 declare -a FIREWALL_PORTA=(`firewall-cmd --list-all`)
 
 ativando_desativando_firewall()

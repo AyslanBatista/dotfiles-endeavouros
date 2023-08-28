@@ -31,6 +31,6 @@ armazenando_lista_pacote()
 }
 verificando_diferencas()
 {
-        diff -u ${CAMINHO_PASTA_LISTAGEM}${ULTIMO_ARQUIVO[1]}  ${CAMINHO_PASTA_LISTAGEM}${ULTIMO_ARQUIVO[2]}
+        diff -u ${CAMINHO_PASTA_LISTAGEM}${ULTIMO_ARQUIVO[2]}  ${CAMINHO_PASTA_LISTAGEM}${ULTIMO_ARQUIVO[1]}
 }
 main

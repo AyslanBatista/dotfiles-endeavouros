@@ -29,7 +29,7 @@ alias vim='nvim'
 alias vi='nvim'
 
 # Scripts
-alias firewall_sshd='~/.config/i3/Scripts/sshd_firewall_on_off.sh'
+alias firewall_sshd='sudo ~/.config/i3/Scripts/sshd_firewall_on_off.sh'
 alias listagem_pacotes='~/.config/i3/Scripts/listagem_pacote.sh'
 
 # Bluetooth 
