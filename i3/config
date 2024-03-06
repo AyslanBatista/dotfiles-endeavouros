@@ -121,6 +121,7 @@ bindsym $mod+Shift+0    move container to workspace  $ws10
 #        bindsym Escape mode "default"
 #}
 
+
 #bindsym $mod+r mode "resize"
 
 # Aumenta ou Diminuir o tamanho da Janela
@@ -136,7 +137,8 @@ bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
 # start a terminal
 #bindsym $mod+Return exec xfce4-terminal
 #bindsym $mod+shift+Return exec terminator
-bindsym $mod+Return exec cool-retro-term
+bindsym $mod+shift+Return exec cool-retro-term
+bindsym $mod+Return exec warp-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -242,8 +244,8 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 bindsym $mod+e exec /usr/bin/code
 bindsym $mod+w exec /usr/bin/brave
 bindsym $mod+n exec /usr/bin/thunar
-bindsym Shift+Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
-bindsym Print exec flameshot gui
+bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym Shift+Print exec flameshot gui
 
 
 bindsym $mod+F3 exec ~/.config/i3/Scripts/Rofi-Scripts
@@ -253,6 +255,7 @@ bindsym $mod+F6 exec ~/.config/i3/Scripts/Rofi-Playlist-VLC
 bindsym $mod+F7 exec discord
 bindsym $mod+F8 exec telegram-desktop
 bindsym $mod+F9 exec zoom
+bindsym $mod+Shift+F10 exec teamviewer
 bindsym $mod+F10 exec anydesk
 bindsym $mod+F11 exec system-monitoring-center
 bindsym $mod+F12 exec ~/.config/i3/scripts/powermenu
@@ -292,6 +295,7 @@ workspace $ws1 output DP-2
 # assign [class="Thunar"] $ws3
 # assign [class="thunderbird"] $ws4
 # assign [class="TelegramDesktop"] $ws5
+
 
 # automatic set focus new window if it opens on another workspace than the current:
 # for_window [class=Xfce4-terminal] focus
@@ -435,8 +439,11 @@ for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enabl
 for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
 
-# set border of floating window
+# Colocando Bordas nos programas
 for_window [class="urxvt"] border pixel 1
+for_window [class="Piper"] border pixel 1
+for_window [class="easyeffects"] border pixel 1
+for_window [class="warp"] border pixel 1
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
