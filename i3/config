@@ -444,7 +444,7 @@ for_window [class="urxvt"] border pixel 1
 for_window [class="Piper"] border pixel 1
 for_window [class="easyeffects"] border pixel 1
 for_window [class="warp"] border pixel 1
-
+for_window [class="^.*"] opaque_region=frame #orçar a renderização de todas as janelas pelo Picom
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
 #for_window [class=".*"] resize set 640 480 #to change size of all floating windows 
