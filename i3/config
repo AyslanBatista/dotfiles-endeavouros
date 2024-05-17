@@ -255,10 +255,11 @@ bindsym $mod+F6 exec ~/.config/i3/Scripts/Rofi-Playlist-VLC
 bindsym $mod+F7 exec discord
 bindsym $mod+F8 exec telegram-desktop
 bindsym $mod+F9 exec zoom
-bindsym $mod+Shift+F10 exec teamviewer
-bindsym $mod+F10 exec anydesk
+bindsym $mod+F10 exec virtualbox
 bindsym $mod+F11 exec system-monitoring-center
 bindsym $mod+F12 exec ~/.config/i3/scripts/powermenu
+bindsym $mod+Shift+F10 exec teamviewer
+bindsym $mod+Shift+F11 exec anydesk
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -338,7 +339,7 @@ workspace $ws1 output DP-2
 #############################################
 
 #get auth work with polkit-gnome
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # dex execute .desktop files + apps using /etc/xdg/autostart.
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
@@ -373,6 +374,11 @@ exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 exec --no-startup-id "picom --config ~/.config/picom/picom.conf"
 exec --no-startup-id nvidia-settings --load-config-only
+exec --no-startup-id ~/.config/Thunar/start_thunar.sh
+exec --no-startup-id ~/.config/piper/start_piper.sh
+
+# Arrumando o problema do bluetooth manager
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY
 
 # disable power saving (for example if using xscreensaver)
 #exec --no-startup-id xset -dpms
@@ -429,6 +435,7 @@ exec --no-startup-id /usr/bin/dunst
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Windscribe" instance="Windscribe"] floating enable
 
 # set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
@@ -441,10 +448,11 @@ for_window [window_role="About"] floating enable
 
 # Colocando Bordas nos programas
 for_window [class="urxvt"] border pixel 1
+for_window [class="Windscribe"] border pixel 1
 for_window [class="Piper"] border pixel 1
 for_window [class="easyeffects"] border pixel 1
 for_window [class="warp"] border pixel 1
-for_window [class="^.*"] opaque_region=frame #orçar a renderização de todas as janelas pelo Picom
+for_window [class="^.*"] opaque_region=frame #forçar a renderização de todas as janelas pelo Picom
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
 #for_window [class=".*"] resize set 640 480 #to change size of all floating windows 
@@ -580,4 +588,3 @@ bindsym $mod+r exec rofi -modi emoji -show emoji -kb-custom-1 Ctrl+C \
 #exec --no-startup-id greenclip daemon>/dev/null
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
-
