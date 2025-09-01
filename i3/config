@@ -55,7 +55,7 @@ new_window pixel 1
 
 # Set inner/outer gaps
 gaps inner 4
-gaps outer -1
+gaps outer 2
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -125,20 +125,19 @@ bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
 bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
 
-
 ######################################
 # keybindings for different actions: #
 ######################################
 
 # start a terminal
 bindsym $mod+shift+Return exec --no-startup-id xfce4-terminal
-bindsym $mod+Return exec warp-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
 
 # exit-menu
-bindsym $mod+Shift+e exec --no-startup-id ~/.config/i3/scripts/powermenu
+
 
 # Lock the system
 # lock with a picture:
@@ -245,8 +244,8 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-# Redirect sound to headphones
-bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
+# toggle between audio devices for output
+bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/audio-device-switch
 
 ## App shortcuts
 bindsym $mod+e exec /usr/bin/code
@@ -254,6 +253,15 @@ bindsym $mod+w exec --no-startup-id /usr/bin/brave
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 bindsym Print exec --no-startup-id scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 bindsym Shift+Print exec flameshot gui
+
+bindsym $mod+F2 exec /usr/bin/discord
+bindsym $mod+F3 exec /usr/bin/Telegram
+bindsym $mod+F4 exec ~/.config/i3/Scripts/rofi-search
+bindsym $mod+F5 exec ~/.config/i3/Scripts/Rofi-Playlist-Audacious
+bindsym $mod+F8 exec /usr/bin/obs
+bindsym $mod+F10 exec /usr/bin/vmware
+bindsym $mod+F11 exec /usr/bin/anydesk
+bindsym $mod+F12 exec --no-startup-id ~/.config/i3/scripts/powermenu
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
@@ -285,18 +293,18 @@ set $ws10 "10"
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-#assign [class="Xfce4-terminal"] $ws1
-#assign [class="(?i)firefox"] $ws2
-#assign [class="Thunar"] $ws3
-#assign [class="thunderbird"] $ws4
-#assign [class="TelegramDesktop"] $ws5
+# assign [class="Xfce4-terminal"] $ws1
+# assign [class="(?i)firefox"] $ws2
+# assign [class="Thunar"] $ws3
+# assign [class="thunderbird"] $ws4
+# assign [class="TelegramDesktop"] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
-#for_window [class=Xfce4-terminal] focus
-#for_window [class=(?i)firefox] focus
-#for_window [class=Thunar] focus
-#for_window [class=Thunderbird] focus
-#for_window [class=TelegramDesktop] focus
+# for_window [class=Xfce4-terminal] focus
+# for_window [class=(?i)firefox] focus
+# for_window [class=Thunar] focus
+# for_window [class=Thunderbird] focus
+# for_window [class=TelegramDesktop] focus
 
 ##############
 # compositor #
@@ -358,14 +366,16 @@ exec --no-startup-id dex --autostart --environment i3
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
-
 # set wallpaper
-# exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
+exec --no-startup-id sleep 2 && nitrogen --restore
+# exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
 
 # set powersavings for display:
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
+
+# disable power saving (for example if using xscreensaver)
+#exec --no-startup-id xset -dpms
 
 # use xautolock to use autosuspend rules for mobile devices
 # https://wiki.archlinux.org/title/Session_lock#xautolock
@@ -431,9 +441,8 @@ for_window [window_role="About"] floating enable
 
 # set border of floating window
 for_window [class="urxvt"] border pixel 1
-for_window [class="warp"] border pixel 1
 for_window [class="(?i)^code$"] border pixel 1
-
+# for_window [class=".*"] border pixel 0
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
@@ -487,7 +496,7 @@ bar {
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	    	position top
 #	    	i3bar_command i3bar --transparency
-# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
+# su
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
 		    tray_output primary
 		    tray_padding 0
@@ -549,6 +558,9 @@ strip_workspace_numbers yes
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
+
+
+bindsym $mod+r exec rofi -show emoji -modi emoji
 
 #bindsym F9 exec --no-startup-id rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi
