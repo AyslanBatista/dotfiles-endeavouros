@@ -37,23 +37,23 @@ return {
     opts = {
       keymap = {
         -- TAB para aceitar sugestão (como no VSCode)
-        ['<Tab>'] = { 'accept', 'snippet_forward', 'fallback' },
+        ["<Tab>"] = { "accept", "snippet_forward", "fallback" },
         -- SHIFT+TAB para voltar no snippet
-        ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+        ["<S-Tab>"] = { "snippet_backward", "fallback" },
         -- ENTER como alternativa para aceitar
-        ['<CR>'] = { 'accept', 'fallback' },
+        ["<CR>"] = { "accept", "fallback" },
         -- Navegação com setas
-        ['<Up>'] = { 'select_prev', 'fallback' },
-        ['<Down>'] = { 'select_next', 'fallback' },
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
         -- CTRL+SPACE para mostrar sugestões
-        ['<C-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
         -- ESC para fechar
-        ['<C-e>'] = { 'hide', 'fallback' },
+        ["<C-e>"] = { "hide", "fallback" },
         -- CTRL+Y para aceitar (alternativa)
-        ['<C-y>'] = { 'accept' },
+        ["<C-y>"] = { "accept" },
         -- CTRL+N/P para navegar (estilo Vim)
-        ['<C-n>'] = { 'select_next', 'fallback' },
-        ['<C-p>'] = { 'select_prev', 'fallback' },
+        ["<C-n>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback" },
       },
       appearance = {
         use_nvim_cmp_as_default = true,
@@ -93,7 +93,13 @@ return {
     cmd = "Spectre",
     opts = { open_cmd = "noswapfile vnew" },
     keys = {
-      { "<C-h>", function() require("spectre").open() end, desc = "Search and Replace" },
+      {
+        "<C-h>",
+        function()
+          require("spectre").open()
+        end,
+        desc = "Search and Replace",
+      },
     },
   },
 
@@ -234,7 +240,8 @@ return {
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
-              checkOnSave = {
+              checkOnSave = true,
+              check = {
                 command = "clippy",
                 extraArgs = { "--", "-A", "clippy::wildcard_in_or_patterns" },
               },
@@ -260,7 +267,7 @@ return {
                 experimental = {
                   enable = true,
                 },
-                disabled = {"unresolved-proc-macro"},
+                disabled = { "unresolved-proc-macro" },
               },
             },
           },
@@ -833,11 +840,46 @@ return {
     vscode = true,
     opts = {},
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "S",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
+      {
+        "R",
+        mode = { "o", "x" },
+        function()
+          require("flash").treesitter_search()
+        end,
+        desc = "Treesitter Search",
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search",
+      },
     },
   },
 

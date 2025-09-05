@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Se houver um clique, abra o btop (o script wrapper da CPU já lida com isso)
+if [ -n "$BLOCK_BUTTON" ]; then
+    case $BLOCK_BUTTON in
+        1) kitty --title="System Monitor" btop & ;;
+        3) kitty --title="GPU Info" --hold sh -c "nvidia-smi || (echo 'NVIDIA GPU Info:' && lspci | grep VGA)" & ;;
+    esac
+    exit 0
+fi
+
+# Executa o nvidia-smi para obter o uso da GPU e formata a saída
+gpu_usage=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)
+
+# Exibe o ícone e a porcentagem de uso
+echo "${gpu_usage}%"

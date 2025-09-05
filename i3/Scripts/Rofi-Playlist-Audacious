@@ -11,23 +11,26 @@
 # DMENUEDITOR="leafpad"
 DMEDITOR="audacious"
 
-
 # An array of options to choose.
 # You can edit this list to add/remove config files.
 declare -a options=(
-"Louvores - $HOME/Music/Playlist/Louvores.xspf"
-"FundoMusical - $HOME/Music/Playlist/FundoMusical.xspf"
-"DioneiVieira - $HOME/Music/Playlist/DioneiVieira.xspf"
-"NewsDionei - $HOME/Music/Playlist/NewsDionei.xspf"
-"RapJesus - $HOME/Music/Playlist/RapJesus.xspf"
-"RapNacional - $HOME/Music/Playlist/RapNacional.xspf"
-"AllBlack - $HOME/Music/Playlist/AllBlack.xspf"
-"quit"
+    "AllBlack - $HOME/Music/AllBlack.m3u"
+    "Beats - $HOME/Music/Beats.m3u"
+    "BlackGrave - $HOME/Music/BlackGrave.m3u"
+    "EpicSong - $HOME/Music/EpicSong.m3u"
+    "FundoMusical - $HOME/Music/FundoMusical.m3u"
+    "Lofi-HipHop - $HOME/Music/Lofi-HipHop.m3u"
+    "Louvores - $HOME/Music/Louvores.m3u"
+    "Lovores-Internacional - $HOME/Music/Louvores-Internacional.m3u"
+    "Musica-Treino - $HOME/Music/Musica-Treino.m3u"
+    "RapGospel - $HOME/Music/RapGospel.m3u"
+    "RapNacional - $HOME/Music/RapNacional.m3u"
+    "quit"
 )
 
 # Piping the above array into dmenu.
 # We use "printf '%s\n'" to format the array one item to a line.
-choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i  20 -p files: 'Edit config:')
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i 20 -p files: 'Edit config:')
 
 # What to do when/if we choose 'quit'.
 if [[ "$choice" == "quit" ]]; then
@@ -35,8 +38,8 @@ if [[ "$choice" == "quit" ]]; then
 
 # What to do when/if we choose a file to edit.
 elif [ "$choice" ]; then
-	cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
-	$DMEDITOR "$cfg"
+    cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
+    $DMEDITOR "$cfg"
 
 # What to do if we just escape without choosing anything.
 else

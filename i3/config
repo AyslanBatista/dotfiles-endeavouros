@@ -143,9 +143,11 @@ bindsym $mod+q kill
 # lock with a picture:
 #bindsym $mod+l exec --no-startup-id i3lock -i  ~/.config/i3/i3-lock-screen.png -p default|win -t
 # lock by blurring the screen:
-bindsym $mod+l exec --no-startup-id ~/.config/i3/scripts/blur-lock
+# bindsym $mod+l exec --no-startup-id ~/.config/i3/scripts/blur-lock
+
+bindsym $mod+l exec --no-startup-id ~/.config/i3/Scripts/lock-kiosk.sh
 # lock in case after sleep
-exec --no-startup-id xss-lock -l ~/.config/i3/scripts/blur-lock
+# exec --no-startup-id xss-lock -l ~/.config/i3/scripts/blur-lock
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
