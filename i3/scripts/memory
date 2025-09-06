@@ -20,14 +20,17 @@ awk -v type=$TYPE '
 /^MemTotal:/ {
 	mem_total=$2
 }
+/^MemAvailable:/ {
+	mem_available=$2
+}
 /^MemFree:/ {
 	mem_free=$2
 }
 /^Buffers:/ {
-	mem_free+=$2
+	buffers=$2
 }
 /^Cached:/ {
-	mem_free+=$2
+	cached=$2
 }
 /^SwapTotal:/ {
 	swap_total=$2
@@ -41,9 +44,17 @@ END {
 		used=(swap_total-swap_free)/1024/1024
 		total=swap_total/1024/1024
 	} else {
-		free=mem_free/1024/1024
-		used=(mem_total-mem_free)/1024/1024
+		# Use MemAvailable if available (more accurate), otherwise fallback to calculation
+		if (mem_available > 0) {
+			available=mem_available/1024/1024
+			used=(mem_total-mem_available)/1024/1024
+		} else {
+			# Fallback calculation
+			available=(mem_free+buffers+cached)/1024/1024
+			used=(mem_total-mem_free-buffers-cached)/1024/1024
+		}
 		total=mem_total/1024/1024
+		free=available
 	}
 
 	pct=0
@@ -56,14 +67,15 @@ END {
 
 	# short text
 	printf("%02.f%%\n", pct)
+	
+	# full text (required by i3blocks)
+	printf("%02.f%%\n", pct)
 
-	# color
+	# color - simple warning system
 	if (pct > 90) {
-		print("#FF0000")
+		print("#FF0000")  # Red - High usage
 	} else if (pct > 80) {
-		print("#FFAE00")
-	} else if (pct > 70) {
-		print("#FFF600")
+		print("#FFA500")  # Orange - Getting high
 	}
 }
 ' /proc/meminfo

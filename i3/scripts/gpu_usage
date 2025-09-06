@@ -9,8 +9,37 @@ if [ -n "$BLOCK_BUTTON" ]; then
     exit 0
 fi
 
-# Executa o nvidia-smi para obter o uso da GPU e formata a saída
-gpu_usage=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)
+# Executa o nvidia-smi para obter o uso da GPU
+gpu_usage=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null)
 
-# Exibe o ícone e a porcentagem de uso
+# Verificar se o comando foi executado com sucesso
+if [ $? -ne 0 ] || [ -z "$gpu_usage" ]; then
+    echo "N/A"
+    echo "N/A" 
+    exit 0
+fi
+
+# Remove espaços extras e garante que é um número
+gpu_usage=$(echo "$gpu_usage" | tr -d ' ')
+
+# Validar se é um número
+if ! [[ "$gpu_usage" =~ ^[0-9]+$ ]]; then
+    echo "N/A"
+    echo "N/A"
+    exit 0
+fi
+
+# short text
 echo "${gpu_usage}%"
+
+# full text (required by i3blocks)
+echo "${gpu_usage}%"
+
+# Colors based on GPU usage
+if [ "$gpu_usage" -gt 90 ]; then
+    echo "#FF0000"  # Red - Very high usage
+elif [ "$gpu_usage" -gt 70 ]; then
+    echo "#FFA500"  # Orange - High usage
+elif [ "$gpu_usage" -gt 50 ]; then
+    echo "#FFFF00"  # Yellow - Moderate usage
+fi

@@ -29,9 +29,9 @@ binmode(STDOUT, ":utf8");
 # default values
 my $t_warn = $ENV{T_WARN} || 70;
 my $t_crit = $ENV{T_CRIT} || 90;
-my $chip = $ENV{SENSOR_CHIP} || "";
+my $chip = $ENV{SENSOR_CHIP} || "k10temp-pci-00c3";
 my $temperature = -9999;
-my $label = "😀 ";
+my $label = "🔥 ";
 
 sub help {
     print "Usage: temperature [-w <warning>] [-c <critical>] [--chip <chip>]\n";
@@ -46,17 +46,25 @@ GetOptions("help|h" => \&help,
            "c=i"    => \$t_crit,
            "chip=s" => \$chip);
 
-# Get chip temperature
+# Get chip temperature - look for CPU temp specifically
 open (SENSORS, "sensors -u $chip |") or die;
 while (<SENSORS>) {
+    # For k10temp, look for Tctl (temp1_input) which is the CPU control temperature
     if (/^\s+temp1_input:\s+[\+]*([\-]*\d+\.\d)/) {
         $temperature = $1;
         last;
+    }
+    # Alternative: look for Tccd1 if available (temp3_input)
+    elsif (/^\s+temp3_input:\s+[\+]*([\-]*\d+\.\d)/) {
+        $temperature = $1 if $temperature == -9999;
     }
 }
 close(SENSORS);
 
 $temperature eq -9999 and die 'Cannot find temperature';
+
+# Round to integer for cleaner display
+$temperature = int($temperature + 0.5);
 
 if ($temperature < 45) {
   $label = '';
@@ -69,11 +77,12 @@ if ($temperature < 45) {
 } else {
   $label = '';
 }
+
 # Print short_text, full_text
 print "${label}";
-print " $temperature°C\n";
+print " ${temperature}°C\n";
 print "${label}";
-print " $temperature°C\n";
+print " ${temperature}°C\n";
 
 # Print color, if needed
 if ($temperature >= $t_crit) {
