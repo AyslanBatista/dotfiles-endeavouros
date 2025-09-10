@@ -55,9 +55,18 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        -- Linguagens já configuradas
         lua_ls = {},
         pyright = {},
         rust_analyzer = {},
+        clangd = {
+          cmd = { "clangd", "--background-index" },
+          filetypes = { "c", "cpp", "objc", "objcpp" },
+        },
+        omnisharp = {
+          cmd = { "omnisharp" },
+        },
+        asm_lsp = {},
       },
     },
   },
@@ -70,6 +79,9 @@ return {
         lua = { "stylua" },
         python = { "black", "isort" },
         rust = { "rustfmt" },
+        c = { "clang-format" },
+        cpp = { "clang-format" },
+        cs = { "csharpier" },
       },
       format_on_save = {
         timeout_ms = 500,
@@ -133,8 +145,21 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "lua", "python", "rust", "javascript", "typescript", 
-        "html", "css", "json", "yaml", "markdown", "bash"
+        "lua",
+        "python",
+        "rust",
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "json",
+        "yaml",
+        "markdown",
+        "bash",
+        "c",
+        "cpp",
+        "c_sharp",
+        "asm",
       },
     },
   },
