@@ -58,7 +58,28 @@ return {
         -- Linguagens já configuradas
         lua_ls = {},
         pyright = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              -- Interface limpa para aprendizado
+              inlayHints = { enable = false },
+              lens = { enable = false }, -- Remove "X references" acima de funções
+
+              -- Completions menos intrusivos
+              completion = {
+                callable = { snippets = "none" },
+                addCallParenthesis = false,
+              },
+
+              -- Manter ferramentas essenciais
+              checkOnSave = { command = "clippy" },
+              assist = {
+                importGranularity = "module",
+                importPrefix = "by_self",
+              },
+            },
+          },
+        },
         clangd = {
           cmd = { "clangd", "--background-index" },
           filetypes = { "c", "cpp", "objc", "objcpp" },
@@ -82,10 +103,6 @@ return {
         c = { "clang-format" },
         cpp = { "clang-format" },
         cs = { "csharpier" },
-      },
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
       },
     },
   },

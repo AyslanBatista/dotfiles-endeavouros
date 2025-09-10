@@ -101,3 +101,15 @@ map("n", "<leader>sv", "<cmd>split<CR>", { desc = "Split horizontally" })
 -- (não remapear, apenas documentar)
 -- Ctrl+w + h/j/k/l para navegar entre splits
 -- Ctrl+w + c para fechar split atual
+
+-- Comando manual para DESABILITAR inlay hints
+map("n", "<leader>rh", function()
+  vim.lsp.inlay_hint.enable(false, { bufnr = 0 })
+  print("Inlay hints disabled")
+end, { desc = "Disable Rust inlay hints" })
+
+-- Comando manual para REABILITAR inlay hints
+map("n", "<leader>rH", function()
+  vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
+  print("Inlay hints enabled")
+end, { desc = "Enable Rust inlay hints" })
