@@ -1,0 +1,110 @@
+# ROOT BASHRC - Configuração segura e visual
+# Baseada na configuração do usuário mas adaptada para Bash
+
+# ============================================
+# VARIÁVEIS DE AMBIENTE
+# ============================================
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin
+export BROWSER="brave"
+export EDITOR=nvim
+export VISUAL=nvim
+
+# ============================================
+# PROMPT PERSONALIZADO PARA ROOT
+# ============================================
+
+# Cores para o prompt
+RED='\[\033[1;31m\]'
+YELLOW='\[\033[1;33m\]'
+GREEN='\[\033[1;32m\]'
+BLUE='\[\033[1;34m\]'
+WHITE='\[\033[1;37m\]'
+RESET='\[\033[0m\]'
+
+# Prompt customizado com destaque ROOT
+PS1="${RED}\u${RESET}@${GREEN}\h${RESET}:${BLUE}\w${RESET}${RED}# ${RESET}"
+
+# ============================================
+# ALIASES ESSENCIAIS E SEGUROS
+# ============================================
+
+# Aliases com confirmações para segurança
+alias rm='rm -i' # Confirma antes de remover
+alias cp='cp -i' # Confirma antes de sobrescrever
+alias mv='mv -i' # Confirma antes de mover/renomear
+
+# Navegação de arquivos
+if command -v lsd &>/dev/null; then
+    alias ls='lsd'
+    alias l='ls -l'
+    alias la='ls -a'
+    alias lla='ls -la'
+    alias lt='ls --tree'
+else
+    # Fallback para ls comum com cores
+    alias ls='ls --color=auto'
+    alias l='ls -l'
+    alias la='ls -a'
+    alias lla='ls -la'
+fi
+
+# PRINCIPAL: Editor vim -> nvim
+alias vim='nvim'
+
+# Aliases úteis para administração
+alias ll='ls -alF'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Monitoramento rápido
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+alias ps='ps aux'
+
+# ============================================
+# CONFIGURAÇÕES DE HISTÓRICO
+# ============================================
+HISTSIZE=3000                      # Menor que usuário normal
+HISTFILESIZE=3000                  # Histórico no arquivo
+HISTCONTROL=ignoredups:ignorespace # Ignora duplicados e comandos com espaço
+shopt -s histappend                # Anexa ao histórico em vez de sobrescrever
+
+# ============================================
+# CONFIGURAÇÕES DE SEGURANÇA
+# ============================================
+
+# Timeout automático (30 minutos de inatividade)
+export TMOUT=1800
+
+# Configurações bash úteis
+shopt -s checkwinsize # Verifica tamanho da janela após cada comando
+shopt -s cmdhist      # Salva comandos multi-linha como uma entrada
+
+# ============================================
+# FUNÇÕES ÚTEIS
+# ============================================
+
+# Função para voltar ao usuário normal
+back() {
+    if [ -n "$SUDO_USER" ]; then
+        su - "$SUDO_USER"
+    else
+        echo "Não foi possível detectar o usuário original"
+    fi
+}
+
+# ============================================
+# FZF (se estiver instalado)
+# ============================================
+if command -v fzf &>/dev/null; then
+    eval "$(fzf --bash)"
+fi
+
+# ============================================
+# CONFIGURAÇÕES FINAIS
+# ============================================
+
+# Ativa cores no terminal
+export TERM=xterm-256color

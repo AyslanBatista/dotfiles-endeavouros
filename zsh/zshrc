@@ -7,16 +7,32 @@ export EDITOR=nvim
 export VISUAL=nvim
 export SUDO_EDITOR=nvim
 
+# Additional environment variables
+export ARCHFLAGS="-arch x86_64"
+export MANPAGER="nvim +Man!"  # usar neovim para man pages
+
 ZSH_THEME="intheloop"
+
+# Oh My Zsh update configuration
+zstyle ':omz:update' mode auto
+zstyle ':omz:update' frequency 13
 
 plugins=(
     git
     archlinux
     zsh-autosuggestions
     zsh-syntax-highlighting
+    command-not-found    # sugere pacotes quando comando não existe
+    colored-man-pages    # páginas man coloridas
+    extract              # função universal para descompactar
+    z                    # navegação inteligente por diretórios
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Configure autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # Check archlinux plugin commands here
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
@@ -38,23 +54,53 @@ alias lt='ls --tree'
 
 alias vim='nvim'
 
+# Pacman aliases (Arch Linux package management)
+alias pacsearch='pacman -Ss'
+alias pacinfo='pacman -Si'
+alias pacinstall='sudo pacman -S'
+alias pacremove='sudo pacman -Rns'
+alias pacclean='sudo pacman -Sc && sudo pacman -Qtdq | sudo pacman -Rns - 2>/dev/null'
+alias update='sudo pacman -Syu'
+
+# AUR helper aliases (uncomment if you use yay or paru)
+# alias yayupdate='yay -Syu'
+# alias yayclean='yay -Sc && yay -Yc'
+
+# System utilities
+alias df='df -h'
+alias free='free -h'
+alias grep='grep --color=auto'
+alias mkdir='mkdir -pv'
+
 # Scripts
 alias firewall_sshd='sudo ~/.config/i3/Scripts/sshd_firewall_on_off.sh'
 alias listagem_pacotes='~/.config/i3/Scripts/listagem_pacote.sh'
+alias scripts='ls ~/.config/i3/Scripts/'
 
 # Bluetooth 
 alias bluetoothon='sudo systemctl start bluetooth && blueman-manager'
 alias bluetoothoff='sudo systemctl stop bluetooth'
 
-# Files
+# Files and configurations
 alias i3config='code ~/.config/i3/config'
 alias zshrc='code ~/.zshrc'
 alias i3blocks='code ~/.config/i3/i3blocks.conf'
 
+# i3wm specific aliases
+alias i3reload='i3-msg reload'
+alias i3restart='i3-msg restart'
+
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
 
+# History configuration
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+setopt hist_save_no_dups
+setopt share_history
