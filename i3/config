@@ -168,6 +168,7 @@ bindsym F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
 
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -262,7 +263,6 @@ bindsym $mod+F4 exec ~/.config/i3/Scripts/rofi-search
 bindsym $mod+F5 exec ~/.config/i3/Scripts/Rofi-Playlist-Audacious
 bindsym $mod+F8 exec /usr/bin/obs
 bindsym $mod+F10 exec /usr/bin/vmware
-bindsym $mod+F11 exec /usr/bin/anydesk
 bindsym $mod+F12 exec --no-startup-id ~/.config/i3/scripts/powermenu
 
 # Power Profiles menu switcher (rofi)
