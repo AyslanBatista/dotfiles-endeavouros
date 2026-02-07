@@ -1,0 +1,97 @@
+{
+    // ============================================
+    // BRACKETHIGHLIGHTER - Configuração Otimizada
+    // ============================================
+
+    // PERFORMANCE: Threshold de busca (padrão: 5000)
+    // Valores muito altos (>10000) podem causar lag
+    // Recomendado: 5000-10000 para boa performance
+    "search_threshold": 5000,
+
+    // ============================================
+    // ESTILOS DE DESTAQUE
+    // ============================================
+    "user_bracket_styles": {
+        // Parênteses () - Amarelo
+        "default": {
+            "icon": "dot",
+            "color": "brackethighlighter.default",
+            "style": "highlight"
+        },
+
+        // Colchetes [] - Cyan
+        "square": {
+            "icon": "dot",
+            "color": "brackethighlighter.square",
+            "style": "highlight"
+        },
+
+        // Chaves {} - Roxo
+        "curly": {
+            "icon": "dot",
+            "color": "brackethighlighter.curly",
+            "style": "highlight"
+        },
+
+        // Angle brackets <> - Rosa
+        "angle": {
+            "icon": "dot",
+            "color": "brackethighlighter.angle",
+            "style": "highlight"
+        },
+
+        // Tags HTML
+        "tag": {
+            "icon": "dot",
+            "color": "brackethighlighter.tag",
+            "style": "highlight"
+        },
+
+        // Bracket não pareado (erro)
+        "unmatched": {
+            "icon": "question",
+            "color": "brackethighlighter.unmatched",
+            "style": "outline"
+        }
+    },
+
+    // ============================================
+    // COMPORTAMENTO GERAL
+    // ============================================
+
+    // Destaque do conteúdo entre brackets
+    "content_highlight_bar": true,
+    "align_content_highlight_bar": false, // false evita problemas de performance
+
+    // Ícones na gutter (margem esquerda)
+    "show_in_gutter": true,
+
+    // Highlight adjacente aos brackets
+    "bracket_outside_adjacent": true,
+
+    // Modo de escape em strings
+    "bracket_string_escape_mode": "string",
+
+    // ============================================
+    // HIGH VISIBILITY MODE
+    // ============================================
+    // Modo de alta visibilidade (não habilitar por padrão)
+    "high_visibility_enabled_by_default": false,
+    "high_visibility_style": "outline",
+    "high_visibility_color": "brackethighlighter.default",
+
+    // ============================================
+    // POPUPS (para Sublime Text 3+)
+    // ============================================
+    // Mostrar popup quando bracket está fora da tela
+    "show_offscreen_bracket_popup": true,
+    "bracket_popup_max_height": 250,
+    "bracket_popup_max_width": 500,
+
+    // ============================================
+    // BEHAVIOR
+    // ============================================
+    // Ignorar brackets em comentários e strings
+    "ignore_string": false,
+    "ignore_comment": false,
+}
