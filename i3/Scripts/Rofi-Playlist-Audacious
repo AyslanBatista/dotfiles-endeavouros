@@ -17,6 +17,7 @@ declare -a options=(
     "AllBlack - $HOME/Music/AllBlack.m3u"
     "Beats - $HOME/Music/Beats.m3u"
     "BlackGrave - $HOME/Music/BlackGrave.m3u"
+    "BlackAntigo - $HOME/Music/BlackAntigo.m3u"
     "EpicSong - $HOME/Music/EpicSong.m3u"
     "FundoMusical - $HOME/Music/FundoMusical.m3u"
     "Lofi-HipHop - $HOME/Music/Lofi-HipHop.m3u"
