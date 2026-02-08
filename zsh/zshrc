@@ -82,9 +82,9 @@ alias bluetoothon='sudo systemctl start bluetooth && blueman-manager'
 alias bluetoothoff='sudo systemctl stop bluetooth'
 
 # Files and configurations
-alias i3config='code ~/.config/i3/config'
-alias zshrc='code ~/.zshrc'
-alias i3blocks='code ~/.config/i3/i3blocks.conf'
+alias i3config='subl ~/.config/i3/config'
+alias zshrc='subl ~/.zshrc'
+alias i3blocks='subl ~/.config/i3/i3blocks.conf'
 
 # i3wm specific aliases
 alias i3reload='i3-msg reload'
