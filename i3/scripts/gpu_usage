@@ -3,7 +3,7 @@
 # Se houver um clique, abra o btop (o script wrapper da CPU já lida com isso)
 if [ -n "$BLOCK_BUTTON" ]; then
     case $BLOCK_BUTTON in
-        1) kitty --title="System Monitor" btop & ;;
+        1) kitty --title="System Monitor" nvtop & ;;
         3) kitty --title="GPU Info" --hold sh -c "nvidia-smi || (echo 'NVIDIA GPU Info:' && lspci | grep VGA)" & ;;
     esac
     exit 0

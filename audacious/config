@@ -1,5 +1,8 @@
 
 [audacious]
+equalizer_active=TRUE
+equalizer_bands=8,5,2,-1,0,0,0,0,2,2
+equalizer_preamp=-2
 repeat=TRUE
 show_interface=FALSE
 shuffle=TRUE

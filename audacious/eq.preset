@@ -1,0 +1,71 @@
+[Presets]
+Preset0=Sub-Bass Focus (Recommended)
+Preset1=Deep Sub-Bass (Heavy)
+Preset2=Balanced Sub + Mid Bass
+Preset3=Cinema Mode (Sub-Bass Rumble)
+Preset4=Original Win11 Headphones
+
+[Sub-Bass Focus (Recommended)]
+Preamp=-2.0
+Band0=8.0
+Band1=5.0
+Band2=2.0
+Band3=-1.0
+Band4=0
+Band5=0
+Band6=0
+Band7=0
+Band8=2.0
+Band9=2.0
+
+[Deep Sub-Bass (Heavy)]
+Preamp=-3.0
+Band0=10.0
+Band1=6.0
+Band2=2.0
+Band3=-2.0
+Band4=-1.0
+Band5=0
+Band6=0
+Band7=0
+Band8=3.0
+Band9=3.0
+
+[Balanced Sub + Mid Bass]
+Preamp=-2.0
+Band0=7.0
+Band1=6.0
+Band2=4.0
+Band3=0
+Band4=0
+Band5=0
+Band6=0
+Band7=0
+Band8=2.0
+Band9=2.0
+
+[Cinema Mode (Sub-Bass Rumble)]
+Preamp=-3.0
+Band0=9.0
+Band1=4.0
+Band2=1.0
+Band3=-3.0
+Band4=-2.0
+Band5=0
+Band6=1.0
+Band7=2.0
+Band8=3.0
+Band9=4.0
+
+[Original Win11 Headphones]
+Preamp=0
+Band0=3.0
+Band1=6.0
+Band2=6.0
+Band3=0
+Band4=0
+Band5=0
+Band6=0
+Band7=0
+Band8=0
+Band9=0
