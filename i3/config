@@ -299,29 +299,23 @@ bar {
 }
 
 # =============
-# COMPOSITOR
-# =============
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-
-# =============
-# AUTOSTART
+# AUTOSTART - ORDEM OTIMIZADA
 # =============
 
-# Polkit authentication
+# 1. Primeiro: Serviços essenciais (autenticação, D-Bus)
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-# Desktop applications
+# 2. Depois: Aplicações desktop (usa dex que respeita dependências)
 exec --no-startup-id dex --autostart --environment i3
 
-# Monitor configuration
+# 3. Configuração de hardware/display
 exec --no-startup-id ~/.screenlayout/monitor.sh
-
-# Wallpaper
-exec --no-startup-id nitrogen --restore
-
-# Power settings
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 
-# Notifications
+# 4. Visual/Estético (pode ser último)
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/bin/dunst
+
+# 5. Compositor (exec_always para recarregar ao fazer reload do i3)
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
