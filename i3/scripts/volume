@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+SINK="@DEFAULT_SINK@"
+STEP=5
+
+get_volume() {
+    pactl get-sink-volume "$SINK" | awk '{print $5}' | head -n1
+}
+
+is_muted() {
+    pactl get-sink-mute "$SINK" | awk '{print $2}'
+}
+
+case "$BLOCK_BUTTON" in
+3) pactl set-sink-mute "$SINK" toggle ;;      # right click
+4) pactl set-sink-volume "$SINK" +${STEP}% ;; # scroll up
+5) pactl set-sink-volume "$SINK" -${STEP}% ;; # scroll down
+esac
+
+if [ "$(is_muted)" = "yes" ]; then
+    echo "    muted"
+else
+    echo "    $(get_volume)"
+fi
