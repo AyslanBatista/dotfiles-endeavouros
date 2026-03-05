@@ -37,13 +37,8 @@
     // ============================================
     // COMPORTAMENTO DE ARQUIVOS
     // ============================================
-    // Auto-save (equivalente ao afterDelay do VSCode)
     "save_on_focus_lost": true,
-
-    // Nova linha no final do arquivo
     "ensure_newline_at_eof_on_save": true,
-
-    // Remove espaços em branco ao salvar
     "trim_trailing_white_space_on_save": true,
 
     // ============================================
@@ -59,7 +54,11 @@
         ".venv",
         "venv",
         "env",
-        ".env"
+        ".env",
+        "target",   // Rust build output
+        "obj",      // C/C++ object files
+        "bin",      // binários compilados
+        "*.dSYM"    // debug symbols macOS/Linux
     ],
 
     "file_exclude_patterns": [
@@ -75,7 +74,7 @@
     "auto_match_enabled": true,
     "auto_indent": true,
     "smart_indent": true,
-    "indent_to_bracket": false, // Evita problemas com BracketHighlighter
+    "indent_to_bracket": false,
     "trim_automatic_white_space": true,
     "use_tab_stops": true,
 
@@ -87,7 +86,6 @@
     "auto_complete_with_fields": true,
     "auto_complete_delay": 50,
 
-    // Triggers específicos por linguagem
     "auto_complete_triggers": [
         {
             "selector": "source.python",
@@ -106,20 +104,21 @@
     "line_padding_bottom": 1,
     "line_padding_top": 1,
 
-    // Sidebar
     "show_full_path": true,
     "preview_on_click": false,
     "highlight_modified_tabs": true,
 
-    // Minimap
     "draw_minimap_border": true,
     "always_show_minimap_viewport": true,
 
-    // Gutter (números de linha)
     "line_numbers": true,
     "gutter": true,
     "margin": 4,
     "fold_buttons": true,
+
+    // Mostra whitespace apenas no início das linhas
+    // Detecta mistura de tabs/spaces em C e Assembly
+    "draw_white_space": "leading",
 
     // ============================================
     // GIT INTEGRATION
@@ -141,10 +140,7 @@
     // ============================================
     // PERFORMANCE
     // ============================================
-    // Hardware acceleration
     "hardware_acceleration": "opengl",
-
-    // Index files for Goto Anything (0 = auto)
     "index_workers": 0,
 
     // ============================================
@@ -164,7 +160,6 @@
     // OUTROS
     // ============================================
     "drag_text": true,
-    "draw_white_space": "selection",
     "show_encoding": true,
     "show_line_endings": true,
     "spell_check": false,
@@ -172,7 +167,7 @@
     "tree_animation_enabled": true,
     "ignored_packages":
     [
-		"Vintage",
+        "Vintage",
     ],
     "index_files": true,
 }

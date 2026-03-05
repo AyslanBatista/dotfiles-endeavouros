@@ -1,5 +1,5 @@
 return {
-  -- Tema Tokyo Night (visual, não afeta comandos)
+  -- Tema Tokyo Night
   {
     "folke/tokyonight.nvim",
     opts = {
@@ -16,7 +16,7 @@ return {
     },
   },
 
-  -- Terminal integrado (sem conflitar com comandos Vim)
+  -- Terminal integrado
   {
     "akinsho/toggleterm.nvim",
     config = function()
@@ -24,13 +24,12 @@ return {
         size = 15,
         direction = "horizontal",
         start_in_insert = true,
-        -- SEM remapeamento automático de Ctrl+`
         open_mapping = false,
       })
     end,
   },
 
-  -- File explorer melhorado (mas usando <leader>e)
+  -- File explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
@@ -50,28 +49,36 @@ return {
     },
   },
 
-  -- LSP essencial (melhora comandos nativos como gd, gr)
+  -- Mason: gerenciamento automático de LSPs
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "pyright",
+        "rust_analyzer",
+        "clangd",
+        "asm_lsp",
+      },
+    },
+  },
+
+  -- LSP
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        -- Linguagens já configuradas
         lua_ls = {},
         pyright = {},
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
-              -- Interface limpa para aprendizado
               inlayHints = { enable = false },
-              lens = { enable = false }, -- Remove "X references" acima de funções
-
-              -- Completions menos intrusivos
+              lens = { enable = false },
               completion = {
                 callable = { snippets = "none" },
                 addCallParenthesis = false,
               },
-
-              -- Manter ferramentas essenciais
               checkOnSave = { command = "clippy" },
               assist = {
                 importGranularity = "module",
@@ -84,9 +91,11 @@ return {
           cmd = { "clangd", "--background-index" },
           filetypes = { "c", "cpp", "objc", "objcpp" },
         },
-        omnisharp = {
-          cmd = { "omnisharp" },
-        },
+        -- asm_lsp requer um arquivo .asm-lsp.toml no root do projeto
+        -- Exemplo mínimo:
+        --   [[assembler]]
+        --   name = "nasm"
+        -- Documentação: https://github.com/bergercookie/asm-lsp
         asm_lsp = {},
       },
     },
@@ -102,12 +111,11 @@ return {
         rust = { "rustfmt" },
         c = { "clang-format" },
         cpp = { "clang-format" },
-        cs = { "csharpier" },
       },
     },
   },
 
-  -- Git integration (adiciona sem substituir)
+  -- Git integration
   {
     "lewis6991/gitsigns.nvim",
     opts = {
@@ -118,12 +126,11 @@ return {
     },
   },
 
-  -- Autocomplete melhorado (sem remapear Tab agressivamente)
+  -- Autocomplete (Tab aceita como VSCode, setas navegam)
   {
     "saghen/blink.cmp",
     opts = {
       keymap = {
-        -- Tab apenas se menu estiver visível
         ["<Tab>"] = { "accept", "fallback" },
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
         ["<C-Space>"] = { "show" },
@@ -132,10 +139,9 @@ return {
     },
   },
 
-  -- Telescope (essencial para busca, usando <leader>)
+  -- Telescope
   {
     "nvim-telescope/telescope.nvim",
-    -- Sem remapeamentos automáticos de Ctrl+P
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Find Text" },
@@ -153,6 +159,9 @@ return {
         ["<leader>g"] = { name = "+git" },
         ["<leader>c"] = { name = "+code" },
         ["<leader>t"] = { name = "+terminal" },
+        ["<leader>s"] = { name = "+split" },
+        ["<leader>r"] = { name = "+rust/hints" },
+        ["<leader>o"] = { name = "+outline" },
       },
     },
   },
@@ -175,9 +184,28 @@ return {
         "bash",
         "c",
         "cpp",
-        "c_sharp",
         "asm",
+        "nasm", -- syntax highlight específico para NASM
       },
+    },
+  },
+
+  -- Editor hexadecimal nativo para análise de binários
+  -- Uso: :HexToggle para alternar entre hex e texto normal
+  {
+    "RaafatTurki/hex.nvim",
+    config = true,
+  },
+
+  -- Outline lateral de funções e símbolos
+  -- Útil para navegar em arquivos grandes de C/C++/Assembly
+  {
+    "stevearc/aerial.nvim",
+    opts = {
+      backends = { "lsp", "treesitter" },
+    },
+    keys = {
+      { "<leader>o", "<cmd>AerialToggle<CR>", desc = "Toggle outline" },
     },
   },
 }

@@ -1,14 +1,5 @@
 -- Autocmds mínimos e úteis
 
--- Abrir Neotree apenas se não foi passado arquivo como argumento
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argc() == 0 then
-      vim.cmd("Neotree show")
-    end
-  end,
-})
-
 -- Destacar ao copiar texto
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
@@ -16,7 +7,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Desabilitar spell check para todos os filetypes, sempre
+-- Forçar spell check desabilitado para todos os filetypes
+-- (o LazyVim reativa spell para markdown/gitcommit por padrão)
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()

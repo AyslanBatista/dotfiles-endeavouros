@@ -1,0 +1,6 @@
+{
+    // Rulers adequados para Assembly (colunas menores que linguagens de alto nível)
+    "rulers": [40, 80],
+    "tab_size": 4,
+    "word_wrap": false
+}
