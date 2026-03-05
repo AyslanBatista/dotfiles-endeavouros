@@ -235,6 +235,8 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
+for_window [class="Windscribe"] floating enable
+
 
 # Specific borders
 for_window [class="urxvt"] border pixel 1

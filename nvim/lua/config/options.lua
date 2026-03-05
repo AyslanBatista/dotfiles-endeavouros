@@ -1,3 +1,4 @@
+print("OPTIONS LOADED")
 -- Manter configurações sensatas sem alterar comportamento básico do Vim
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -35,9 +36,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
-
--- Desativar spell check por padrão
-vim.opt.spell = false
 
 -- Configurações específicas por filetype
 vim.api.nvim_create_autocmd("FileType", {

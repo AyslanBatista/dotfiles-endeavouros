@@ -15,3 +15,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank({ timeout = 200 })
   end,
 })
+
+-- Desabilitar spell check para todos os filetypes, sempre
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.spell = false
+  end,
+})
