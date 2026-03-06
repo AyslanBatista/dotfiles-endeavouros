@@ -51,7 +51,6 @@ alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
-
 alias vim='nvim'
 
 # Pacman aliases (Arch Linux package management)
@@ -89,6 +88,18 @@ alias i3blocks='subl ~/.config/i3/i3blocks.conf'
 # i3wm specific aliases
 alias i3reload='i3-msg reload'
 alias i3restart='i3-msg restart'
+
+# AI - Ollama
+alias ollama-start='sudo systemctl start ollama'
+alias ollama-stop='sudo systemctl stop ollama'
+alias ai-light='sudo systemctl start ollama && ollama run qwen3:4b --think=false'
+alias ai-full='sudo systemctl start ollama && ollama run qwen3:8b-q4_K_M --think=false'
+alias ai-reason='sudo systemctl start ollama && ollama run deepseek-r1:8b'
+
+ai-ask() {
+    sudo systemctl start ollama
+    ollama run qwen3:4b --think=false "$1"
+}
 
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)

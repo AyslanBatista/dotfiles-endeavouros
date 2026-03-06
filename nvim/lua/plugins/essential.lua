@@ -216,6 +216,12 @@ return {
     },
   },
 
+  -- Multiplos Cursores
+  {
+    "mg979/vim-visual-multi",
+    branch = "master",
+  },
+
   -- Outline lateral de funções e símbolos
   -- Útil para navegar em arquivos grandes de C/C++/Assembly
   {
