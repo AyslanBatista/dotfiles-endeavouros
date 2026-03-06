@@ -5,6 +5,16 @@ return {
     opts = {
       style = "moon",
       transparent = true,
+      on_highlights = function(hl, c)
+        -- NeoTree transparente
+        hl.NeoTreeNormal = { bg = "NONE" }
+        hl.NeoTreeNormalNC = { bg = "NONE" }
+        hl.NeoTreeEndOfBuffer = { bg = "NONE" }
+
+        -- Terminal transparente
+        hl.TerminalNormal = { bg = "NONE" }
+        hl.TerminalNormalNC = { bg = "NONE" }
+      end,
     },
   },
 
@@ -195,6 +205,15 @@ return {
   {
     "RaafatTurki/hex.nvim",
     config = true,
+  },
+
+  -- Desativar o terminal do snacks completamente
+  {
+    "folke/snacks.nvim",
+    opts = {
+      terminal = { enabled = false },
+      explorer = { enabled = false },
+    },
   },
 
   -- Outline lateral de funções e símbolos

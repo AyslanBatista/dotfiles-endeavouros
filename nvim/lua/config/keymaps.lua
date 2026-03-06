@@ -63,7 +63,10 @@ map("n", "<leader>tt", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Float terminal" })
 
 -- ESC para sair do terminal mode
-map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+map("t", "<leader>tt", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+
+map("n", "<C-/>", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+map("t", "<C-/>", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
 
 -- ============================================================================
 -- FORMATAÇÃO
