@@ -92,14 +92,14 @@ alias i3restart='i3-msg restart'
 # AI - Ollama
 alias ollama-start='sudo systemctl start ollama'
 alias ollama-stop='sudo systemctl stop ollama'
-alias ai-light='sudo systemctl start ollama && ollama run qwen3:4b --think=false'
 alias ai-full='sudo systemctl start ollama && ollama run qwen3:8b-q4_K_M --think=false'
-alias ai-reason='sudo systemctl start ollama && ollama run deepseek-r1:8b'
+alias ai-reason='sudo systemctl start ollama && ollama run deepseek-r1:8b --think=false'
 
 ai-ask() {
     sudo systemctl start ollama
-    ollama run qwen3:4b --think=false "$1"
+    ollama run qwen3:8b-q4_K_M --think=false "$1"
 }
+HISTORY_IGNORE="(ai-ask *|ai-ask)"
 
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
