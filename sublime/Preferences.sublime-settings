@@ -12,7 +12,6 @@
     "font_size": 11.5,
     "font_options": ["subpixel_antialias"],
 
-    // Cursor grosso
     "caret_style": "solid",
     "caret_extra_width": 2,
     "wide_caret": true,
@@ -23,10 +22,8 @@
     "rulers": [80, 100, 120],
 
     // ============================================
-    // BRACKETS - IMPORTANTE: DESABILITAR NATIVO
+    // BRACKETS - DESABILITADO (usa BracketHighlighter)
     // ============================================
-    // CRÍTICO: Sublime nativo CONFLITA com BracketHighlighter
-    // Se usar BracketHighlighter, DEVE desabilitar estas opções:
     "match_brackets": false,
     "match_brackets_angle": false,
     "match_brackets_braces": false,
@@ -39,7 +36,8 @@
     // ============================================
     "save_on_focus_lost": true,
     "ensure_newline_at_eof_on_save": true,
-    "trim_trailing_white_space_on_save": true,
+
+    "trim_trailing_white_space_on_save": "all",
 
     // ============================================
     // ARQUIVOS E PASTAS OCULTAS
@@ -55,10 +53,10 @@
         "venv",
         "env",
         ".env",
-        "target",   // Rust build output
-        "obj",      // C/C++ object files
-        "bin",      // binários compilados
-        "*.dSYM"    // debug symbols macOS/Linux
+        "target",
+        "obj",
+        "bin",
+        "*.dSYM"
     ],
 
     "file_exclude_patterns": [
@@ -74,7 +72,11 @@
     "auto_match_enabled": true,
     "auto_indent": true,
     "smart_indent": true,
-    "indent_to_bracket": false,
+
+    // CORRIGIDO: era false, true alinha ao bracket aberto
+    // (comportamento esperado pelo rustfmt e clang-format)
+    "indent_to_bracket": true,
+
     "trim_automatic_white_space": true,
     "use_tab_stops": true,
 
@@ -85,17 +87,6 @@
     "auto_complete_commit_on_tab": true,
     "auto_complete_with_fields": true,
     "auto_complete_delay": 50,
-
-    "auto_complete_triggers": [
-        {
-            "selector": "source.python",
-            "characters": ".",
-        },
-        {
-            "selector": "source.rust",
-            "characters": ":.",
-        }
-    ],
 
     // ============================================
     // VISUAL E UI
@@ -116,14 +107,7 @@
     "margin": 4,
     "fold_buttons": true,
 
-    // Mostra whitespace apenas no início das linhas
-    // Detecta mistura de tabs/spaces em C e Assembly
-    "draw_white_space": "leading",
-
-    // ============================================
-    // GIT INTEGRATION
-    // ============================================
-    "show_git_status": true,
+    "draw_white_space": [],
 
     // ============================================
     // SCROLL E NAVEGAÇÃO
@@ -140,8 +124,13 @@
     // ============================================
     // PERFORMANCE
     // ============================================
-    "hardware_acceleration": "opengl",
-    "index_workers": 0,
+    // REMOVIDO: "hardware_acceleration": "opengl" — pode causar
+    // flickering e artefatos visuais dependendo do GPU/driver.
+    // O padrão do Sublime é mais estável.
+
+    // CORRIGIDO: era 0 (todos os cores), pode travar em projetos grandes.
+    // 2 é um balanço seguro entre performance e estabilidade.
+    "index_workers": 2,
 
     // ============================================
     // TELEMETRIA E PRIVACIDADE
@@ -165,8 +154,7 @@
     "spell_check": false,
     "animation_enabled": true,
     "tree_animation_enabled": true,
-    "ignored_packages":
-    [
+    "ignored_packages": [
         "Vintage",
     ],
     "index_files": true,

@@ -1,0 +1,5 @@
+{
+    "debounce_delay": 1000,
+    "diff_algorithm": "patience",
+    "show_status_bar_text": true
+}

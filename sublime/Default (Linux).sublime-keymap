@@ -1,0 +1,31 @@
+[
+    {
+        "keys": [
+            "alt+m"
+        ],
+        "command": "markdown_preview",
+        "args": {
+            "target": "browser",
+            "parser": "markdown"
+        }
+    },
+    {
+        "keys": [
+            "ctrl+shift+i"
+        ],
+        "command": "lsp_format_document"
+    },
+    {
+        "keys": [
+            "ctrl+k",
+            "ctrl+i"
+        ],
+        "command": "lsp_hover"
+    },
+    {
+        "keys": [
+            "ctrl+shift+space"
+        ],
+        "command": "lsp_signature_help"
+    },
+]

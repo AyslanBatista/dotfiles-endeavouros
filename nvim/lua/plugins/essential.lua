@@ -83,7 +83,19 @@ return {
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
-              inlayHints = { enable = false },
+              -- Inlay hints completamente desabilitados
+              -- Use <leader>rH para reabilitar quando precisar
+              inlayHints = {
+                enable = true,
+                bindingModeHints = { enable = false },
+                chainingHints = { enable = false },
+                closingBraceHints = { enable = false },
+                closureReturnTypeHints = { enable = false },
+                lifetimeElisionHints = { enable = false },
+                parameterHints = { enable = true },
+                typeHints = { enable = true },
+                reborrowHints = { enable = false },
+              },
               lens = { enable = false },
               completion = {
                 callable = { snippets = "none" },
@@ -136,15 +148,24 @@ return {
     },
   },
 
-  -- Autocomplete (Tab aceita como VSCode, setas navegam)
   {
     "saghen/blink.cmp",
     opts = {
+      signature = {
+        enabled = false,
+      },
+      completion = {
+        documentation = {
+          auto_show = false,
+        },
+      },
       keymap = {
         ["<Tab>"] = { "accept", "fallback" },
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
         ["<C-Space>"] = { "show" },
         ["<C-e>"] = { "hide" },
+        ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+        ["<C-d>"] = { "show_documentation", "hide_documentation" },
       },
     },
   },

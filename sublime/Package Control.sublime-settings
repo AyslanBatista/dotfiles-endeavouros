@@ -1,0 +1,28 @@
+{
+	"bootstrapped": true,
+	"installed_packages":
+	[
+		"A File Icon",
+		"BracketHighlighter",
+		"GitGutter",
+		"HexViewer",
+		"LSP",
+		"LSP-clangd",
+		"LSP-json",
+		"LSP-pyright",
+		"LSP-rust-analyzer",
+		"LSP-yaml",
+		"MarkdownPreview",
+		"MonokaiFree",
+		"NASM x86 Assembly",
+		"Origami",
+		"Package Control",
+		"PlainTasks",
+		"PowerShell",
+		"SideBarEnhancements",
+		"x86 and x86_64 Assembly",
+	],
+	"in_process_packages":
+	[
+	],
+}
