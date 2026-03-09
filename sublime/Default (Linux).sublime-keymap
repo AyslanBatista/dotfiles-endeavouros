@@ -24,8 +24,21 @@
     },
     {
         "keys": [
-            "ctrl+shift+space"
+            "ctrl+alt+space"
         ],
-        "command": "lsp_signature_help"
+        "command": "noop",
+        "context": [
+            {
+                "key": "lsp.signature_help",
+                "operator": "equal",
+                "operand": 0
+            }
+        ]
+    },
+    {
+        "keys": [
+            "ctrl+shift+o"
+        ],
+        "command": "prompt_open_folder"
     },
 ]

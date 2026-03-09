@@ -1,19 +1,2 @@
 {
-    "clients": {
-        "rust-analyzer": {
-            "disabled_capabilities": {
-                "signatureHelpProvider": {}
-            }
-        },
-        "pyright": {
-            "disabled_capabilities": {
-                "signatureHelpProvider": {}
-            }
-        },
-        "clangd": {
-            "disabled_capabilities": {
-                "signatureHelpProvider": {}
-            }
-        }
-    }
 }

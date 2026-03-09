@@ -48,15 +48,10 @@
         "__pycache__",
         "*.egg-info",
         ".pytest_cache",
-        "build",
         ".venv",
         "venv",
         "env",
         ".env",
-        "target",
-        "obj",
-        "bin",
-        "*.dSYM"
     ],
 
     "file_exclude_patterns": [
