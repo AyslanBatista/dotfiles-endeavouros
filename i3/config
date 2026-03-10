@@ -311,7 +311,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id dex --autostart --environment i3
 
 # 3. Configuração de hardware/display
-exec --no-startup-id ~/.screenlayout/monitor.sh
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 

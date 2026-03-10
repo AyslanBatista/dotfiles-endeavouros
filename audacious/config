@@ -8,7 +8,7 @@ show_interface=FALSE
 shuffle=TRUE
 
 [audgui]
-filesel_path=/home/ayslan/Music/Musica/Beats
+filesel_path=/home/ayslan/Music/Musica
 
 [audqt]
 icon_theme=audacious-flat-dark
