@@ -2,9 +2,7 @@ active 0
 playing 0
 playlist 0
 filename file:///home/ayslan/Music/BlackGrave.m3u
-position 43
-shuffle 30,34,47,56,57,58,63,9,4,13,71,68,46,36,2,49
-shuffle 20,26,64,32,5,8,41,65,42,15,28,70,6,27,33,67
-shuffle 50,52,31,11,45,10,19,62,14,7,0,16,22,43
-resume-state 2
-resume-time 80066
+position 197
+shuffle 487,197
+resume-state 1
+resume-time 40151

@@ -38,6 +38,10 @@ Hotkey_6_key=122
 Hotkey_6_mask=1
 NumHotkeys=7
 
+[pipewire]
+volume_left=35
+volume_right=35
+
 [qtui]
 player_height=1041
 player_width=950
